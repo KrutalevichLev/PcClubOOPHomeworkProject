@@ -29,7 +29,7 @@ int main() {
 
 	GamingRig gaming_rig1(ram_gb, power_supply_unit, price_hour, station_id, cpu_model, gpu_model);
 
-	gaming_rig1.inputGames();
+	gaming_rig1.setGames();
 
 	cout << "\nInfo about your gaming rig:" << endl;
 

@@ -2,68 +2,68 @@
 
 class GamingRig {
 public:
-	int ram_gb;
-	int power_supply_unit;
-	int price_hour;
-	int game_count;
-	string station_id;
-	string cpu_model;
-	string gpu_model;
+	int ramGb;
+	int powerSupplyUnit;
+	int priceHour;
+	int gameCount;
+	string stationId;
+	string cpuModel;
+	string gpuModel;
 	string* games;
 
 	//default constructor
 
 	GamingRig() {
-		ram_gb = 0;
-		power_supply_unit = 0;
-		price_hour = 0;
-		game_count = 0;
-		station_id = "0";
-		cpu_model = "No model";
-		gpu_model = "No model";
+		ramGb = 0;
+		powerSupplyUnit = 0;
+		priceHour = 0;
+		gameCount = 0;
+		stationId = "0";
+		cpuModel = "No model";
+		gpuModel = "No model";
 		games = NULL;
 	}
 
 	//constructor with arguments
 
 	GamingRig(int rg, int psu, int ph, string id, string cm, string gm) {
-		ram_gb = rg;
-		power_supply_unit = psu;
-		price_hour = ph;
-		station_id = id;
-		game_count = 0;
-		cpu_model = cm;
-		gpu_model = gm;
+		ramGb = rg;
+		powerSupplyUnit = psu;
+		priceHour = ph;
+		stationId = id;
+		gameCount = 0;
+		cpuModel = cm;
+		gpuModel = gm;
 		games = NULL;
 	}
 
 	//constructor with 2 arguments
 
 	GamingRig(string id, int ph) {
-		ram_gb = 0;
-		power_supply_unit = 0;
-		price_hour = ph;
-		station_id = id;
-		game_count = 0;
-		cpu_model = "No model";
-		gpu_model = "No model";
+		ramGb = 0;
+		powerSupplyUnit = 0;
+		priceHour = ph;
+		stationId = id;
+		gameCount = 0;
+		cpuModel = "No model";
+		gpuModel = "No model";
 		games = NULL;
 	}
 
 	//copy constructor
 
 	GamingRig(const GamingRig& gr) {
-		ram_gb = gr.ram_gb;
-		power_supply_unit = gr.power_supply_unit;
-		price_hour = gr.price_hour;
-		game_count = gr.game_count;
-		station_id = gr.station_id;
-		cpu_model = gr.cpu_model;
-		gpu_model = gr.gpu_model;
+		ramGb = gr.ramGb;
+		powerSupplyUnit = gr.powerSupplyUnit;
+		priceHour = gr.priceHour;
+		gameCount = gr.gameCount;
+		stationId = gr.stationId;
+		cpuModel = gr.cpuModel;
+		gpuModel = gr.gpuModel;
 
-		if (game_count > 0) {
-			games = new string[game_count];
-			for (int i = 0; i < game_count; i++) {
+		if (gameCount > 0) {
+			games = new string[gameCount];
+			for (int i = 0; i < gameCount; i++) {
 				games[i] = gr.games[i];
 			}
 		}
@@ -82,13 +82,13 @@ public:
 
 	//enter games
 
-	void inputGames() {
+	void setGames() {
 		cout << "Enter games count: ";
-		cin >> game_count;
-		if (game_count > 0) {
-			games = new string[game_count];
+		cin >> gameCount;
+		if (gameCount > 0) {
+			games = new string[gameCount];
 			cin.ignore();
-			for (int i = 0; i < game_count; i++) {
+			for (int i = 0; i < gameCount; i++) {
 				cout << "Game name number " << i + 1 << ": ";
 				getline(cin, games[i]);
 			}
@@ -101,17 +101,17 @@ public:
 	//output information
 
 	string toString() {
-		string msg = "\n#ID: " + station_id + "\n";
-		msg += "#gb in ram: " + to_string(ram_gb) + "\n";
-		msg += "#power supply unit: " + to_string(power_supply_unit) + "\n";
-		msg += "#model of cpu: " + cpu_model + "\n";
-		msg += "#model of gpu: " + gpu_model + "\n";
-		msg += "#price per hour: " + to_string(price_hour) + "\n";
+		string msg = "\n#ID: " + stationId + "\n";
+		msg += "#gb in ram: " + to_string(ramGb) + "\n";
+		msg += "#power supply unit: " + to_string(powerSupplyUnit) + "\n";
+		msg += "#model of cpu: " + cpuModel + "\n";
+		msg += "#model of gpu: " + gpuModel + "\n";
+		msg += "#price per hour: " + to_string(priceHour) + "\n";
 
-		if (game_count > 0) {
-			msg += "#count of games: " + to_string(game_count) + "\n";
+		if (gameCount > 0) {
+			msg += "#count of games: " + to_string(gameCount) + "\n";
 			msg += "#games: \n";
-			for (int i = 0; i < game_count; i++)
+			for (int i = 0; i < gameCount; i++)
 			{
 				msg += " " +  to_string(i + 1) + "." + games[i] + "\n";
 			}
