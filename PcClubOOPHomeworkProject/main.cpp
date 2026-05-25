@@ -1,35 +1,45 @@
 #include "GamingRig.h"
 
 int main() {
-	GamingRig gaming_rig1;
-	
+	int ram_gb,power_supply_unit,price_hour,game_count;
+	string station_id, cpu_model, gpu_model;
+	string* games;
+
+
 	cout << "Enter id of rig: ";
-	cin >> gaming_rig1.station_id;
+	cin >> station_id;
 
 	cout << "Enter how much gb in ram: ";
-	cin >> gaming_rig1.ram_gb;
+	cin >> ram_gb;
 
 	cout << "Enter power of supply unit: ";
-	cin >> gaming_rig1.power_supply_unit;
+	cin >> power_supply_unit;
 
 	cin.ignore();
 
 	cout << "Enter cpu: ";
-	getline(cin, gaming_rig1.cpu_model);
+	getline(cin, cpu_model);
 
 
 	cout << "Enter gpu: ";
-	getline(cin, gaming_rig1.gpu_model);
+	getline(cin, gpu_model);
 
 	cout << "Enter price per hour: ";
-	cin >> gaming_rig1.price_hour;
+	cin >> price_hour;
 
+	GamingRig gaming_rig1(ram_gb, power_supply_unit, price_hour, station_id, cpu_model, gpu_model);
 
 	gaming_rig1.inputGames();
 
 	cout << "\nInfo about your gaming rig:" << endl;
 
 	cout << gaming_rig1.toString();
+
+	GamingRig gaming_rig2(gaming_rig1);
+
+	cout << "\nInfo about your gaming rig:" << endl;
+
+	cout << gaming_rig2.toString();
 
 	return 0;
 }
