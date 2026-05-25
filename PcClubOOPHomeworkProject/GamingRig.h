@@ -1,7 +1,7 @@
 #include "logic.h"
 
 class GamingRig {
-public:
+private:
 	int ramGb;
 	int powerSupplyUnit;
 	int priceHour;
@@ -10,6 +10,8 @@ public:
 	string cpuModel;
 	string gpuModel;
 	string* games;
+
+public:
 
 	//default constructor
 
@@ -80,7 +82,27 @@ public:
 		}
 	}
 
-	//enter games
+	//set
+
+	void setRamGb(int gb) {
+		ramGb = gb;
+	}
+
+	void setPowerSupplyUnit(int gb) {
+		powerSupplyUnit = gb;
+	}
+
+	void setPriceHour(int ph) {
+		priceHour = ph;
+	}
+
+	void setCpuModel(int cpm) {
+		cpuModel = cpm;
+	}
+
+	void setGpuModel(int gpm) {
+		gpuModel = gpm;
+	}
 
 	void setGames() {
 		cout << "Enter games count: ";
@@ -98,15 +120,37 @@ public:
 		}
 	}
 
+	//get
+
+	int getRamGb() {
+		return ramGb;
+	}
+
+	int getPowerSupplyUnit() {
+		return powerSupplyUnit;
+	}
+
+	int getPriceHour() {
+		return priceHour;
+	}
+
+	string getCpuModel() {
+		return cpuModel;
+	}
+
+	string getGpuModel() {
+		return gpuModel;
+	}
+
 	//output information
 
 	string toString() {
 		string msg = "\n#ID: " + stationId + "\n";
 		msg += "#gb in ram: " + to_string(ramGb) + "\n";
-		msg += "#power supply unit: " + to_string(powerSupplyUnit) + "\n";
+		msg += "#power supply unit: " + to_string(powerSupplyUnit) + "W" + "\n";
 		msg += "#model of cpu: " + cpuModel + "\n";
 		msg += "#model of gpu: " + gpuModel + "\n";
-		msg += "#price per hour: " + to_string(priceHour) + "\n";
+		msg += "#price per hour: " + to_string(priceHour) + "$" + "\n";
 
 		if (gameCount > 0) {
 			msg += "#count of games: " + to_string(gameCount) + "\n";
