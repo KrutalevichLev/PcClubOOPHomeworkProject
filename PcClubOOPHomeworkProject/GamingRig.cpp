@@ -2,41 +2,29 @@
 
 //default constructor
 
-GamingRig::GamingRig() {
-	ramGb = 0;
-	powerSupplyUnit = 0;
-	priceHour = 0;
+GamingRig::GamingRig() : GamingRig(8 , 450, 10, "0", "No model of cpu" , "No model of gpu") {
 	gameCount = 0;
-	stationId = "0";
-	cpuModel = "No model";
-	gpuModel = "No model";
 	games = NULL;
 }
 
 //constructor with arguments
 
-GamingRig::GamingRig(int rg, int psu, int ph, string id, string cm, string gm) {
-	ramGb = rg;
-	powerSupplyUnit = psu;
-	priceHour = ph;
-	stationId = id;
+GamingRig::GamingRig(int ramGb, int powerSupplyUnit, int priceHour, string stationId, string cpuModel, string gpuModel) {
+	this->ramGb = ramGb;
+	this->powerSupplyUnit = powerSupplyUnit;
+	this->priceHour = priceHour;
+	this->stationId = stationId;
 	gameCount = 0;
-	cpuModel = cm;
-	gpuModel = gm;
+	this->cpuModel = cpuModel;
+	this->gpuModel = gpuModel;
 	games = NULL;
 }
 
 //constructor with 2 arguments
 
-GamingRig::GamingRig(string id, int ph) {
-	ramGb = 0;
-	powerSupplyUnit = 0;
-	priceHour = ph;
-	stationId = id;
-	gameCount = 0;
-	cpuModel = "No model";
-	gpuModel = "No model";
-	games = NULL;
+GamingRig::GamingRig(string stationId, int priceHour) : GamingRig() {
+	this->priceHour = priceHour;
+	this->stationId = stationId;
 }
 
 //copy constructor
@@ -113,8 +101,8 @@ void GamingRig::setGames(string* ms, int c) {
 
 }
 
-
 //get
+
 string GamingRig::getID() {
 	return stationId;
 }
