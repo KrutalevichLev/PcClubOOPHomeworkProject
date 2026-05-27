@@ -46,10 +46,9 @@ public:
 
 	void setGpuModel(string gpm);
 
-	void setGames(string*);
-
 	void setGames(string* ms, int c);
 
+	void setGameCount(int gc);
 
 	//get
 
@@ -68,10 +67,6 @@ public:
 	string getGpuModel();
 
 	string* getGames();
-
-	//enter
-
-	void enterGames();
 
 	//output information
 

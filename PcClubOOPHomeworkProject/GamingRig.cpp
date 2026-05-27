@@ -71,6 +71,10 @@ GamingRig::~GamingRig() {
 
 //set
 
+void GamingRig::setGameCount(int gc){
+	gameCount = gc;
+}
+
 void GamingRig::setRamGb(int gb) {
 	ramGb = gb;
 }
@@ -95,22 +99,18 @@ void GamingRig::setGpuModel(string gpm) {
 	gpuModel = gpm;
 }
 
-void GamingRig::setGames(string*) {
-
-}
-
 void GamingRig::setGames(string* ms, int c) {
-	if (games != nullptr) {
-		delete[] games;
-		games = new string[c];
 
-		for (int i = 0; i < c; i++)
-		{
-			games[i] = ms[i];
-		}
+	delete[] games;
+	games = new string[c];
 
-		gameCount = c;
+	for (int i = 0; i < c; i++)
+	{
+		games[i] = ms[i];
 	}
+
+	gameCount = c;
+
 }
 
 
@@ -145,24 +145,6 @@ string GamingRig::getGpuModel() {
 
 string* GamingRig::getGames() {
 	return games;
-}
-
-//enter
-
-void GamingRig::enterGames() {
-	cout << "Enter games count: ";
-	cin >> gameCount;
-	if (gameCount > 0) {
-		games = new string[gameCount];
-		cin.ignore();
-		for (int i = 0; i < gameCount; i++) {
-			cout << "Game name number " << i + 1 << ": ";
-			getline(cin, games[i]);
-		}
-	}
-	else {
-		games = NULL;
-	}
 }
 
 //output information

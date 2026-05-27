@@ -35,11 +35,30 @@ int main() {
 	cin >> price_hour;
 	gaming_rig1.setPriceHour(price_hour);
 
-	gaming_rig1.enterGames();
+	cout << "Enter games count: ";
+	cin >> game_count;
+
+	if (game_count > 0) {
+		games = new string[game_count];
+		cin.ignore();
+		for (int i = 0; i < game_count; i++) {
+			cout << "Game name number " << i + 1 << ": ";
+			getline(cin, games[i]);
+		}
+	}
+	else {
+		games = NULL;
+	}
+
+	gaming_rig1.setGames(games, game_count);
+
+	delete[] games;
 
 	cout << "\nInfo about your gaming rig:" << endl;
 
-	cout << gaming_rig1.toString();
+	string msg = gaming_rig1.toString();
+
+	cout << msg;
 
 	return 0;
 }
