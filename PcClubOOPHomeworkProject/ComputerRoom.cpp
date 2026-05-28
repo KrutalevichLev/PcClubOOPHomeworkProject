@@ -130,7 +130,7 @@ void ComputerRoom::removeGamingRig(int index) {
 //output information
 
 string ComputerRoom::toString() {
-	string msg = "Gaming room with id " + id;
+	string msg = "Gaming room with id: " + id + "\n";
 
 	if (size > 0)
 	{

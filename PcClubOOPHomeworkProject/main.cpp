@@ -85,7 +85,8 @@ int main() {
 		<< admin.findMinPrice(&cr) << endl 
 		<< admin.findMaxPrice(&cr) << endl 
 		<< admin.findIndexOfGamingRigWithMinPrice(&cr) << endl 
-		<< admin.findIndexOfGamingRigWithMaxPrice(&cr) << endl;;
+		<< admin.findIndexOfGamingRigWithMaxPrice(&cr) << endl 
+		<< cr.toString();
 
 	return 0;
 }
