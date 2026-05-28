@@ -123,11 +123,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="ComputerRoom.cpp" />
     <ClCompile Include="GamingRig.cpp" />
     <ClCompile Include="logic.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
+    <ClInclude Include="ComputerRoom.h" />
     <ClInclude Include="GamingRig.h" />
     <ClInclude Include="logic.h" />
   </ItemGroup>

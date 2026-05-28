@@ -24,12 +24,24 @@
     <ClCompile Include="GamingRig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Admin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputerRoom.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="logic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GamingRig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Admin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputerRoom.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

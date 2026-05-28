@@ -2,9 +2,8 @@
 
 //default constructor
 
-GamingRig::GamingRig() : GamingRig(8 , 450, 10, "0", "No model of cpu" , "No model of gpu") {
-	gameCount = 0;
-	games = NULL;
+GamingRig::GamingRig() : GamingRig(8, 450, 10, "0", "No model of cpu", "No model of gpu") {
+
 }
 
 //constructor with arguments
@@ -29,14 +28,8 @@ GamingRig::GamingRig(string stationId, int priceHour) : GamingRig() {
 
 //copy constructor
 
-GamingRig::GamingRig(const GamingRig& gr) {
-	ramGb = gr.ramGb;
-	powerSupplyUnit = gr.powerSupplyUnit;
-	priceHour = gr.priceHour;
+GamingRig::GamingRig(const GamingRig& gr) : GamingRig(gr.ramGb, gr.powerSupplyUnit, gr.priceHour, gr.stationId, gr.cpuModel, gr.gpuModel){
 	gameCount = gr.gameCount;
-	stationId = gr.stationId;
-	cpuModel = gr.cpuModel;
-	gpuModel = gr.gpuModel;
 
 	if (gameCount > 0) {
 		games = new string[gameCount];
@@ -59,45 +52,49 @@ GamingRig::~GamingRig() {
 
 //set
 
-void GamingRig::setGameCount(int gc){
-	gameCount = gc;
-}
-
-void GamingRig::setRamGb(int gb) {
-	ramGb = gb;
-}
-
-void GamingRig::setID(string id) {
-	stationId = id;
-}
-
-void GamingRig::setPowerSupplyUnit(int gb) {
-	powerSupplyUnit = gb;
-}
-
-void GamingRig::setPriceHour(int ph) {
-	priceHour = ph;
-}
-
-void GamingRig::setCpuModel(string cpm) {
-	cpuModel = cpm;
-}
-
-void GamingRig::setGpuModel(string gpm) {
-	gpuModel = gpm;
-}
-
-void GamingRig::setGames(string* ms, int c) {
-
-	delete[] games;
-	games = new string[c];
-
-	for (int i = 0; i < c; i++)
+void GamingRig::setRamGb(int ramGb) {
+	if (ramGb >= 8 && ramGb <= 64)
 	{
-		games[i] = ms[i];
+		this->ramGb = ramGb;
+	}
+}
+
+void GamingRig::setID(string stationId) {
+	this->stationId = stationId;
+}
+
+void GamingRig::setPowerSupplyUnit(int powerSupplyUnit) {
+	if (powerSupplyUnit >= 450)
+	{
+		this->powerSupplyUnit = powerSupplyUnit;
+	}
+}
+
+void GamingRig::setPriceHour(int priceHour) {
+	if (priceHour >= 10) {
+		this->priceHour = priceHour;
+	}
+}
+
+void GamingRig::setCpuModel(string cpuModel) {
+	this->cpuModel = cpuModel;
+}
+
+void GamingRig::setGpuModel(string gpuModel) {
+	this->gpuModel = gpuModel;
+}
+
+void GamingRig::setGames(string* games, int gameCount) {
+
+	delete[] this->games;
+	this->games = new string[gameCount];
+
+	for (int i = 0; i < gameCount; i++)
+	{
+		this->games[i] = games[i];
 	}
 
-	gameCount = c;
+	this->gameCount = gameCount;
 
 }
 

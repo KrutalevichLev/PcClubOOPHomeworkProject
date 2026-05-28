@@ -48,8 +48,6 @@ public:
 
 	void setGames(string* ms, int c);
 
-	void setGameCount(int gc);
-
 	//get
 
 	int getRamGb();
