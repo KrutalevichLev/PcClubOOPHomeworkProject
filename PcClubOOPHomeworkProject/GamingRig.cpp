@@ -16,7 +16,7 @@ GamingRig::GamingRig(int ramGb, int powerSupplyUnit, int priceHour, string stati
 	gameCount = 0;
 	this->cpuModel = cpuModel;
 	this->gpuModel = gpuModel;
-	games = NULL;
+	games = nullptr;
 }
 
 //constructor with 2 arguments
@@ -38,7 +38,7 @@ GamingRig::GamingRig(const GamingRig& gr) : GamingRig(gr.ramGb, gr.powerSupplyUn
 		}
 	}
 	else {
-		games = NULL;
+		games = nullptr;
 	}
 }
 

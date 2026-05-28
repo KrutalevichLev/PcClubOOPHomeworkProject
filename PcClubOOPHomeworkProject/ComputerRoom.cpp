@@ -25,7 +25,8 @@ ComputerRoom::ComputerRoom(string id, GamingRig** list, int size) {
 		}
 	}
 	else {
-		this->list = NULL;
+		this->list = nullptr;
+		this->size = 0;
 	}
 }
 
@@ -35,7 +36,7 @@ ComputerRoom::ComputerRoom(const ComputerRoom& computerRoom) : ComputerRoom(comp
 	size = computerRoom.size;
 
 	if (size > 0) {
-		list = new GamingRig * [size];
+		list = new GamingRig*[size];
 		for (int i = 0; i < size; i++) {
 			list[i] = new GamingRig(*computerRoom.list[i]);
 		}
@@ -84,26 +85,26 @@ void ComputerRoom::setId(string id) {
 //add
 
 void ComputerRoom::addGamingRig(GamingRig* gamingRig) {
+	if (gamingRig == nullptr) return;
+
+	GamingRig* newRig = new GamingRig(*gamingRig);
+
 	if (list != nullptr) {
 		GamingRig** temp = new GamingRig * [size + 1];
-
-		for (int i = 0; i < size; i++)
-		{
+		for (int i = 0; i < size; ++i) {
 			temp[i] = list[i];
 		}
-		temp[size] = gamingRig;
-
+		temp[size] = newRig;
 		delete[] list;
-
 		list = temp;
-		size++;
 	}
 	else {
 		list = new GamingRig * [1];
-		size = 1;
-		list[0] = gamingRig;
+		list[0] = newRig;
 	}
+	size++;
 }
+
 
 //remove
 

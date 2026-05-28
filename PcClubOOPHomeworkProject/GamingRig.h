@@ -18,11 +18,11 @@ public:
 
 	//constructor with arguments
 
-	GamingRig(int rg, int psu, int ph, string id, string cm, string gm);
+	GamingRig(int ramGb, int powerSupplyUnit, int priceHour, string stationId, string cpuModel, string gpuModel);
 
 	//constructor with 2 arguments
 
-	GamingRig(string id, int ph);
+	GamingRig(string stationId, int priceHour);
 
 	//copy constructor
 
@@ -34,21 +34,23 @@ public:
 
 	//set
 
-	void setRamGb(int gb);
+	void setRamGb(int ramGb);
 
-	void setPowerSupplyUnit(int gb);
+	void setID(string stationId);
 
-	void setPriceHour(int ph);
+	void setPowerSupplyUnit(int powerSupplyUnit);
 
-	void setID(string id);
+	void setPriceHour(int priceHour);
 
-	void setCpuModel(string cpm);
+	void setCpuModel(string cpuModel);
 
-	void setGpuModel(string gpm);
+	void setGpuModel(string gpuModel);
 
-	void setGames(string* ms, int c);
+	void setGames(string* games, int gameCount);
 
 	//get
+
+	string getID();
 
 	int getRamGb();
 
@@ -57,8 +59,6 @@ public:
 	int getPriceHour();
 
 	int getGameCount();
-
-	string getID();
 
 	string getCpuModel();
 
