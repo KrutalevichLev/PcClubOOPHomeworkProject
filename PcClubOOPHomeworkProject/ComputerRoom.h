@@ -1,4 +1,5 @@
 #include "GamingRig.h"
+#include "AccountGroup.h"
 
 class ComputerRoom
 {

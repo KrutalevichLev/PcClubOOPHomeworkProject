@@ -67,6 +67,21 @@ int main() {
 	GamingRig gaming_rig4(8, 450, 60, "fds", "dff", "efd");
 	GamingRig gaming_rig5(8, 450, 30, "fds", "dff", "efd");
 
+	ClientAccount cl1("Alex", 10);
+	ClientAccount cl2("Boris", 40);
+	ClientAccount cl3("Nick", 20);
+	ClientAccount cl4("Klop", 30);
+
+	AccountGroup ag;
+
+	ag.addAccount(&cl1);
+
+	ag.addAccount(&cl2);
+
+	ag.addAccount(&cl3);
+
+	ag.addAccount(&cl4);
+
 	Admin admin;
 
 	ComputerRoom cr("2321");
@@ -86,7 +101,11 @@ int main() {
 		<< admin.findMaxPrice(&cr) << endl 
 		<< admin.findIndexOfGamingRigWithMinPrice(&cr) << endl 
 		<< admin.findIndexOfGamingRigWithMaxPrice(&cr) << endl 
-		<< cr.toString();
+		<< cr.toString() << endl
+		<< admin.findEarningsOverTime(&cr, 90) << "$" << endl
+		<< admin.canClientPlayOnGamingRig(&cr, 1, &ag, 2) << endl 
+		<< admin.FindHowMuchClientPlayOnGamingRig(&cr, 1, &ag, 1) << endl
+		<< ag.toString();
 
 	return 0;
 }

@@ -19,7 +19,7 @@ double Admin::calculateAveragePrice(ComputerRoom* computerRoom) {
 		}
 	}
 
-	return 0;
+	return -1;
 }
 
 double Admin::findMinPrice(ComputerRoom* computerRoom) {
@@ -47,7 +47,7 @@ double Admin::findMinPrice(ComputerRoom* computerRoom) {
 		}
 	}
 
-	return 0;
+	return -1;
 }
 
 double Admin::findMaxPrice(ComputerRoom* computerRoom) {
@@ -75,7 +75,7 @@ double Admin::findMaxPrice(ComputerRoom* computerRoom) {
 		}
 	}
 
-	return 0;
+	return -1;
 }
 
 int Admin::findIndexOfGamingRigWithMinPrice(ComputerRoom* computerRoom) {
@@ -105,7 +105,7 @@ int Admin::findIndexOfGamingRigWithMinPrice(ComputerRoom* computerRoom) {
 		}
 	}
 
-	return 0;
+	return -1;
 }
 
 int Admin::findIndexOfGamingRigWithMaxPrice(ComputerRoom* computerRoom) {
@@ -135,5 +135,57 @@ int Admin::findIndexOfGamingRigWithMaxPrice(ComputerRoom* computerRoom) {
 		}
 	}
 
-	return 0;
+	return -1;
+}
+
+int Admin::findEarningsOverTime(ComputerRoom* computerRoom, int time) {
+	if (computerRoom != nullptr) {
+
+		int size = computerRoom->getSize();
+
+		if (size > 0)
+		{
+			GamingRig* gamingRig = computerRoom->getGamingRig(0);
+			int per_hour = gamingRig->getPriceHour();
+
+			for (int i = 1; i < size; i++)
+			{
+				GamingRig* gamingRig = computerRoom->getGamingRig(i);
+				per_hour += gamingRig->getPriceHour();
+
+			}
+
+			return per_hour * time;
+		}
+	}
+
+	return -1;
+}
+
+int Admin::FindHowMuchClientPlayOnGamingRig(ComputerRoom* computerRoom, int indexOfGamingRig, AccountGroup* accountGroup, int indexOfClientAccount) {
+	if (computerRoom != nullptr) {
+
+			int balance = accountGroup->getAccount(indexOfClientAccount)->getBalance();
+			int price = computerRoom->getGamingRig(indexOfGamingRig)->getPriceHour();
+
+			if (balance >= price) {
+				return balance / price;
+		}
+	}
+
+	return -1;
+}
+
+bool Admin::canClientPlayOnGamingRig(ComputerRoom* computerRoom, int indexOfGamingRig, AccountGroup* accountGroup, int indexOfClientAccount) {
+	if (computerRoom != nullptr) {
+
+			int price = accountGroup->getAccount(indexOfClientAccount)->getBalance();
+			int balance = computerRoom->getGamingRig(indexOfGamingRig)->getPriceHour();
+
+			if (balance >= price) {
+				return true;
+			}
+	}
+
+	return false;
 }

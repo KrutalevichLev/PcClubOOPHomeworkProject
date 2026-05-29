@@ -1,5 +1,4 @@
 #include "ComputerRoom.h"
-#include "ClientAccount.h"
 
 class Admin
 { 
@@ -17,6 +16,15 @@ public:
 	double findMinPrice(ComputerRoom* computerRoom);
 
 	double findMaxPrice(ComputerRoom* computerRoom);
+
+	int findEarningsOverTime(ComputerRoom* computerRoom, int time);
+
+	int FindHowMuchClientPlayOnGamingRig(ComputerRoom* computerRoom, int indexOfGamingRig, AccountGroup* accountGroup, int indexOfClientAccount);
+
+	//bool
+
+	bool canClientPlayOnGamingRig(ComputerRoom* computerRoom, int indexOfGamingRig, AccountGroup* accountGroup, int indexOfClientAccount);
+
 
 };
 
