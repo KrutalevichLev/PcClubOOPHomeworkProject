@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Admin.cpp" />
+    <ClCompile Include="ClientAccount.cpp" />
     <ClCompile Include="ComputerRoom.cpp" />
     <ClCompile Include="GamingRig.cpp" />
     <ClCompile Include="logic.cpp" />
@@ -131,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Admin.h" />
+    <ClInclude Include="ClientAccount.h" />
     <ClInclude Include="ComputerRoom.h" />
     <ClInclude Include="GamingRig.h" />
     <ClInclude Include="logic.h" />
